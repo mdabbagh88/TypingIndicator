@@ -4,25 +4,32 @@ buildscript {
     ext.kotlin_version = "2.0.21"
     ext.bintray_version = '0.9.1'
     ext.publish_version = '0.1.1'
+
     repositories {
-        google()
         mavenCentral()
+        gradlePluginPortal()
         //jcenter()
+        google()
         maven { url 'https://jitpack.io' }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:8.7.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21"
         //classpath "com.novoda:bintray-release:$bintray_version"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 
 allprojects {
     repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        //jcenter()
         google()
         maven { url "https://jitpack.io" }
-        mavenCentral()
-        //jcenter()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
 }
 
