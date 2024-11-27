@@ -4,29 +4,31 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
+//
+//publish {
+//
+//    def groupProjectID = "com.qifan.typingIndicator"
+//    def artifactProjectID = "typingIndicator"
+//    def publishVersionID = "$publish_version"
+//
+//    userOrg = "undervoid"
+//    repoName = "TypingIndicator"
+//    groupId = groupProjectID
+//    artifactId = artifactProjectID
+//    publishVersion = publishVersionID
+//    desc = "Android library for displaying pending status in Instant chat message."
+//    website = "https://github.com/underwindfall/TypingIndicator"
+//
+//}
 
+apply plugin: 'maven'
 
-publish {
-
-    def groupProjectID = "com.qifan.typingIndicator"
-    def artifactProjectID = "typingIndicator"
-    def publishVersionID = "$publish_version"
-
-    userOrg = "undervoid"
-    repoName = "TypingIndicator"
-    groupId = groupProjectID
-    artifactId = artifactProjectID
-    publishVersion = publishVersionID
-    desc = "Android library for displaying pending status in Instant chat message."
-    website = "https://github.com/underwindfall/TypingIndicator"
-
-}
+group = 'com.github.mdabbagh88'
 
 android {
     compileSdkVersion 28
-
-
+    
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
