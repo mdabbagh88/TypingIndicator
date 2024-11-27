@@ -2,10 +2,15 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
-apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    namespace = "com.qifan.typingindicator"
+
+    buildFeatures {
+        viewBinding true
+    }
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.qifan.typingindicator"
         minSdkVersion 21
@@ -19,6 +24,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 

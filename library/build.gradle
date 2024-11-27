@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
 
-apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android-extensions'
 
 //apply plugin: 'com.novoda.bintray-release'
 //
@@ -22,21 +22,28 @@ apply plugin: 'kotlin-android-extensions'
 //
 //}
 
-apply plugin: 'maven'
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+apply plugin: 'maven-publish'
 
 group = 'com.github.mdabbagh88'
+version = '0.1.1'
 
 android {
-    compileSdkVersion 28
-    
+    namespace = "com.qifan.library"
+
+    compileSdkVersion 30
+
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "0.1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -46,6 +53,10 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 }
 
 dependencies {
@@ -55,4 +66,18 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.mdabbagh88'
+                artifactId = 'com.qifan.library'
+                version = '0.1.1'
+            }
+        }
+    }
 }
